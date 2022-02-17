@@ -1,0 +1,56 @@
+body{
+    /* text-align: center; */
+    margin: 0;
+    font-family: sans-serif;
+    
+    
+}
+
+/*for heading  */
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    color:grey;
+
+}
+
+#contacts-list-container{
+    /* margin: 0; */
+    text-align: center;
+    width: 50vw;
+   margin-left:25vw;
+ 
+}
+
+/*removing bullets from list items */
+ul{
+    list-style-type: none ;
+}
+
+
+/* for veiwing details */
+
+.details{
+    display: flex;
+    justify-content: space-around;
+    background-color: steelblue;
+    border: 2px solid white;
+}
+
+.contact{
+font-family: sans-serif;
+color: white;
+}
+
+
+/* Alignment for input-box */
+
+#new-contact-form{
+    text-align: center;
+
+}   
+
+/* css for add button */
+#add{
+    background-color: tomato;
+}
