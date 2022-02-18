@@ -2,7 +2,7 @@ body{
     /* text-align: center; */
     margin: 0;
     font-family: sans-serif;
-    
+
     
 }
 
@@ -14,34 +14,53 @@ body{
 
 }
 
-#contacts-list-container{
-    /* margin: 0; */
-    text-align: center;
-    width: 50vw;
-   margin-left:25vw;
- 
+/*removing bullets from  list item */
+#contacts-list-container ul{
+    padding: 0;
+    list-style: none;
 }
 
-/*removing bullets from list items */
-ul{
-    list-style-type: none ;
-}
-
-
-/* for veiwing details */
-
-.details{
-    display: flex;
-    justify-content: space-around;
-    background-color: steelblue;
-    border: 2px solid white;
-}
-
+/* css for displayed lists */
 .contact{
-font-family: sans-serif;
-color: white;
+    margin-left: 25vw;
+    max-width: 50vw;
+    padding: 3px 10px;
+    border: 1px solid white;
+    background-color: #6f92f9;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    color: white;
+    display: flex;
+
 }
 
+/* css for veiwing details  */
+.contact .details{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    width: 90%;
+}
+
+.contact .delete-button{
+    width: 10%;
+    padding: 3px;
+    text-align: center;
+    margin-top: 5px;
+
+}
+
+.contact .delete-button a{
+    color:white;
+    background-color: red;
+}
+
+
+/* css for paragraph(veiwing name and phone)  */
+.contact p{
+    margin: 5px 0;
+
+}
 
 /* Alignment for input-box */
 
@@ -53,4 +72,5 @@ color: white;
 /* css for add button */
 #add{
     background-color: tomato;
+
 }

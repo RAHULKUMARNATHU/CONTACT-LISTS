@@ -32,15 +32,17 @@
                  <div class="details">
                     <p><%= i.name %></p>
                     <p><%= i.phone %> </p>
-                 <!-- </div> -->
+                 </div>
                     <div class="delete-button">
-                        <a href="">
+
+                        <!-- Request Params params -->
+                        <!-- <a href="/delete-contact/<%= i.phone %>"> -->
+                            <!-- Query Params -->
+                        <!-- <a href="/delete-contact/?phone=<%= i.phone %> & name=<%= i.name%>"> -->
+                            <a href="/delete-contact/?phone=<%= i.phone %>">
                             <i class="fas fa-window-close" > </i>
-    
-
-
                         </a>
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </li>
              <%}%>

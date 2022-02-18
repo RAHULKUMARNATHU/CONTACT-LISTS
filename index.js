@@ -8,6 +8,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname,'views'));
+//uses  only read the form data //not params 
 app.use(express.urlencoded())
 app.use(express.static('assets'));
 
@@ -24,6 +25,10 @@ app.use(function(req , res , next){
     console.log('middleware 2 called');
     next();
 });
+
+
+// Declearing variable
+
 var contactList = [
     {
         name:"SwaRa",
@@ -40,7 +45,7 @@ var contactList = [
 ]
 
 
-
+// render to home page 
 app.get('/',function(req , res){
 //    console.log(__dirname)
     // console.log(req)
@@ -52,13 +57,16 @@ app.get('/',function(req , res){
     });
 });
 
-
+// render to practice page 
 app.get('/practice',function(req,res){
     return res.render('practice',{
         title:"Let us play with EJS"
     })
 })
 
+
+
+// post request i.e for add button 
 
 app.post('/create-contact',function(req,res){
 //     console.log(req.body);
@@ -76,6 +84,32 @@ app.post('/create-contact',function(req,res){
     contactList.push(req.body);
     return res.redirect('back');
 });
+
+
+
+// delete contact list functions
+app.get('/delete-contact' , function(req,res){
+   
+    let phone = req.query.phone;
+
+    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+
+
+    if(contactIndex != -1){
+        contactList.splice(contactIndex,1);
+        return res.redirect('back')
+    }
+
+});
+// request Params
+// app.get('/delete-contact/:phone' , function(req,res){
+//     console.log(req.params)
+//     let phone = req.params.phone;
+
+
+// });
+
+// listening port here
 
 app.listen(port , function(err){
     if(err){
