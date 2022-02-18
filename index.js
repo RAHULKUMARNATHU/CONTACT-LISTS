@@ -117,15 +117,26 @@ app.post('/create-contact',function(req,res){
 // delete contact list functions
 app.get('/delete-contact' , function(req,res){
    
-    let phone = req.query.phone;
+    // let phone = req.query.phone;
 
-    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+    // let contactIndex = contactList.findIndex(contact => contact.phone == phone);
 
 
-    if(contactIndex != -1){
-        contactList.splice(contactIndex,1);
+    // if(contactIndex != -1){
+    //     contactList.splice(contactIndex,1);
+    //     return res.redirect('back')
+    // }
+
+
+    let id = req.query.id;
+    // find the contact in the database using id and delete 
+    Contact.findByIdAndDelete(id,function(err){
+        if(err){
+            console.log('error in deleting an object from database');
+            return;
+        }
         return res.redirect('back')
-    }
+    });
 
 });
 // request Params
