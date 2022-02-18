@@ -58,10 +58,19 @@ app.get('/',function(req , res){
     // console.log(req)
     // res.send('<h1>cool , it is running! or is it ?<\h1>');
 
-    return res.render('home' , {
-        title: "My Contacts List",
-        contact_list : contactList
+
+    Contact.find({} ,function(err , contacts){
+        if(err){
+            console.log('Error in fetching contacts form db');
+            return;
+        }
+        return res.render('home' , {
+            title: "My Contacts List",
+            contact_list : contacts
+        });
+
     });
+   
 });
 
 // render to practice page 
@@ -88,8 +97,19 @@ app.post('/create-contact',function(req,res){
     // });
     // return res.redirect('/')
 
-    contactList.push(req.body);
-    return res.redirect('back');
+    // contactList.push(req.body);
+
+    Contact.create({
+        name : req.body.name ,  
+        phone : req.body.phone
+    }, function(error , newContact){
+        if(error){
+            console.log('error in creating contact list') 
+            return;}
+            console.log('*********', newContact);
+            return res.redirect('back');
+        });
+   
 });
 
 
