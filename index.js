@@ -4,7 +4,11 @@ const express = require('express');
 const path = require('path');
 const port = 8000;
 
+// importing  required file for use
 const db =require('./config/mongoose')
+const Contact = require('./models/contact');
+
+
 const app = express();
 
 
@@ -17,17 +21,17 @@ app.use(express.static('assets'));
 
 
 
-//middleware1
-app.use(function(req , res , next){
-    console.log('middleware 1 called');
-    next();
-});
+// //middleware1
+// app.use(function(req , res , next){
+//     console.log('middleware 1 called');
+//     next();
+// });
 
-//middleware2
-app.use(function(req , res , next){
-    console.log('middleware 2 called');
-    next();
-});
+// //middleware2
+// app.use(function(req , res , next){
+//     console.log('middleware 2 called');
+//     next();
+// });
 
 
 // Declearing variable
