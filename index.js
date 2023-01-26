@@ -34,17 +34,10 @@ app.use(express.static('assets'));
 // });
 
 
-// Declearing variable
+// Declaring variable
 
 var contactList = [
-    {
-        name:"SwaRa",
-        phone:"9572239086"
-    },
-    {
-        name:"Nathu",
-        phone:"9575239088"
-    },
+   
     {
         name:"Rahul",
         phone:"9574239088"  
@@ -59,7 +52,7 @@ app.get('/',function(req , res){
     // res.send('<h1>cool , it is running! or is it ?<\h1>');
 
 
-    Contact.find({} ,function(err , contacts){
+    Contact.findOne({} ,function(err , contacts){
         if(err){
             console.log('Error in fetching contacts form db');
             return;
